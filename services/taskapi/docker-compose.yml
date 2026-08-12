@@ -3,7 +3,8 @@ version: '3.8'
 services:
   api:
     build: .
-    ports: ["8000:8000"]
+    ports:
+      - "8000:8000"
     environment:
       DATABASE_URL: "postgresql+asyncpg://app:app@postgres:5432/app"
       REDIS_URL: "redis://redis:6379/0"
@@ -11,10 +12,13 @@ services:
     depends_on:
       - postgres
       - redis
+
   postgres:
     image: postgres:16
     environment:
       POSTGRES_USER: app
       POSTGRES_PASSWORD: app
+      POSTGRES_DB: app
+
   redis:
     image: redis:7
