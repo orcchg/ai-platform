@@ -17,7 +17,11 @@ jobs:
         run: docker compose -f services/taskapi/docker-compose.yml up -d
 
       - name: Verify everything is running
-        run: docker compose -f services/taskapi/docker-compose.yml ps
+        run: |
+          echo "=== Active and Stopped Containers ==="
+          docker ps -a
+          echo "=== Full System Processes ==="
+          docker compose -f services/taskapi/docker-compose.yml ps -a
 
       # 🔍 DEBUG STEP: Print logs so you can see if FastAPI or Uvicorn crashed
       - name: Print Container Logs on Failure

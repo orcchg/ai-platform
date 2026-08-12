@@ -12,7 +12,7 @@ ENV UV_COMPILE_BYTECODE=1
 # Force uv to use copies instead of hardlinks inside the container
 ENV UV_LINK_MODE=copy
 
-COPY pyproject.toml uv.lock ./
+COPY services/taskapi/pyproject.toml services/taskapi/uv.lock ./
 
 # Cache Optimization: Install dependencies, but skip your actual project source code
 # --no-install-project: This flag separates the heavy download phase of your third-party dependencies
@@ -33,7 +33,7 @@ RUN groupadd -g 1001 appgroup && \
 COPY --from=builder /app/.venv /app/.venv
 
 # Copy your actual application source code
-COPY app ./app
+COPY services/taskapi/app ./app
 
 # Add the virtual environment to the system PATH so you don't need 'uv run'
 # Environment PATH Injection: By pushing /app/.venv/bin directly to ENV PATH,
