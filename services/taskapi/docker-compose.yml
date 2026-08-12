@@ -3,8 +3,8 @@ services:
     build: .
     ports: ["8000:8000"]
     environment:
-      DATABASE_URL: "postgresql+asyncpg://app:app@localhost:5432/app"
-      REDIS_URL: "redis://localhost:6379/0"
+      DATABASE_URL: "postgresql+asyncpg://app:app@postgres:5432/app"
+      REDIS_URL: "redis://redis:6379/0"
       JWT_SECRET: "67cb14a018388e5ae4e4bc31fdc565bdc1d7a17d0396574b0e2eb170e2bb7be8"
     depends_on:
       - postgres
