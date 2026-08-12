@@ -19,6 +19,11 @@ jobs:
       - name: Verify everything is running
         run: docker compose -f services/taskapi/docker-compose.yml ps
 
+      # 🔍 DEBUG STEP: Print logs so you can see if FastAPI or Uvicorn crashed
+      - name: Print Container Logs on Failure
+        if: always() # Runs even if previous steps failed
+        run: docker compose -f services/taskapi/docker-compose.yml logs api
+
       - name: Test if API responds
         run: curl http://localhost:8000/health
 
