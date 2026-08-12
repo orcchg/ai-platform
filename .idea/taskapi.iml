@@ -3,8 +3,9 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$/services/taskapi">
       <sourceFolder url="file://$MODULE_DIR$/services/taskapi/src" />
+      <excludeFolder url="file://$MODULE_DIR$/services/taskapi/.venv" />
     </content>
-    <orderEntry type="jdk" jdkName="~/Soft/ai-platform/.venv" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="~/Soft/ai-platform/services/taskapi/.venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
