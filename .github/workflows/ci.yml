@@ -1,0 +1,24 @@
+name: Deploy App
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Start all containers
+        run: docker compose up -d
+
+      - name: Verify everything is running
+        run: docker compose ps
+
+      - name: Test if API responds
+        run: curl http://localhost:8000/health
+

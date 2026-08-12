@@ -3,7 +3,7 @@ from app.config import Settings
 
 def create_app() -> FastAPI:
     app = FastAPI()
-    settings = Settings()
+    # settings = Settings()
 
     @app.get("/healthz")
     async def healthz():
