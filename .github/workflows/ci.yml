@@ -17,7 +17,7 @@ jobs:
         run: docker compose -f services/taskapi/docker-compose.yml up -d
 
       - name: Verify everything is running
-        run: docker compose ps
+        run: docker compose -f services/taskapi/docker-compose.yml ps
 
       - name: Test if API responds
         run: curl http://localhost:8000/health
