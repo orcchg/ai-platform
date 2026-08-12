@@ -33,5 +33,5 @@ jobs:
         run: docker compose -f services/taskapi/docker-compose.yml logs api
 
       - name: Test if API responds
-        run: curl http://localhost:8000/health
+        run: curl http://localhost:8000/healthz
 

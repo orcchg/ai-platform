@@ -5,7 +5,7 @@ def create_app() -> FastAPI:
     app = FastAPI()
     # settings = Settings()
 
-    @app.get("/health")
+    @app.get("/healthz")
     async def health():
         return {"status":"ok"}
 
